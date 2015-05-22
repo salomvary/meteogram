@@ -1,0 +1,22 @@
+.search-location-input-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.input.search-location-input {
+  padding-right: 40px;
+}
+
+.button.search-location-reset {
+  position: absolute;
+  right: 0;
+  background: none;
+  border: 0;
+  font-size: 20px;
+  padding: 0;
+}
+
+.has-results .search-location-input {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}

@@ -1,0 +1,32 @@
+.search-results {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+}
+
+.search-results {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  list-style-type: none;
+
+  border-radius: 4px;
+  border: 1px solid #CCC;
+
+  border-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.search-result {
+  padding: 5px;
+  height: 40px;
+  line-height: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
