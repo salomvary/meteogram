@@ -1,3 +1,5 @@
+uglifyjs := node_modules/.bin/uglifyjs
+
 server: node_modules
 	npm run $@
 
@@ -11,8 +13,14 @@ node_modules: package.json
 	npm install
 	touch node_modules
 
-dist/bundle.js: node_modules app/*.js
+dist/bundle.max.js: node_modules app/*.js
 	npm run build
+	# there seems to be no way of overriding webpack output file
+	mv dist/bundle.js dist/bundle.max.js
+	mv dist/bundle.js.map dist/bundle.max.js.map
+
+dist/bundle.js: dist/bundle.max.js
+	$(uglifyjs) dist/bundle.max.js --in-source-map dist/bundle.max.js.map --compress --output $@ --source-map $@.map --source-map-url bundle.max.js.map
 
 dist/index.html: index.html
 	cp index.html dist/
