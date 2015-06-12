@@ -11,10 +11,26 @@ node_modules: package.json
 	npm install
 	touch node_modules
 
-build: node_modules
+dist/bundle.js: node_modules app/*.js
 	npm run build
 
+dist/index.html: index.html
+	cp index.html dist/
+
+dist/index.appcache: dist/index.html dist/bundle.js
+	@echo "CACHE MANIFEST" > $@
+	@echo "# $$(date)" >> $@
+	@echo "CACHE:" >> $@
+	@cd dist; ls -1 *.js >> index.appcache; cd ..
+	@echo "NETWORK:" >> $@
+	@echo "*" >> $@
+
+.PHONY: dist
+
+dist: dist/bundle.js dist/index.html dist/index.appcache
+
 clean:
-	rm bundle.js
-	rm bundle.js.map
+	rm dist/*
+
+mrproper: clean
 	rm -rf node_modules
