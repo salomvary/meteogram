@@ -35,6 +35,9 @@
     "unmockedModulePathPatterns": [
       "core-js/.*",
       "<rootDir>/node_modules/react"
-    ]
+    ],
+    "globals": {
+      "localStorage": {}
+    }
   }
 }

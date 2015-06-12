@@ -1,4 +1,5 @@
 jest.dontMock('../search-location')
+jest.dontMock('../persistent-component')
 jest.dontMock('debounce')
 
 // Using require because https://github.com/babel/babel-jest/issues/16
