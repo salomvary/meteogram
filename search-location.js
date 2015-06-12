@@ -1,19 +1,24 @@
-import React from 'react/addons'
-import SearchResults from './search-results'
-import search from './search-api'
-import debounce from 'debounce'
 import './search-location.css'
+import debounce from 'debounce'
+import PersistentComponent from './persistent-component'
+import React from 'react/addons'
+import search from './search-api'
+import SearchResults from './search-results'
 
-export default class SearchLocation extends React.Component {
+export default class SearchLocation extends PersistentComponent {
   constructor() {
     super()
-    this.state = {
+    this.suggest = debounce(this.suggest.bind(this), 1000)
+    this.state = this.getPersistedState()
+  }
+
+  getInitialState() {
+    return {
       inputValue: null,
       location: null,
       locations: [],
       errorMessage: null
     }
-    this.suggest = debounce(this.suggest.bind(this), 1000)
   }
 
   handleSubmit(e) {

@@ -1,12 +1,17 @@
 import React from 'react'
+import PersistentComponent from './persistent-component'
 import SearchLocation from './search-location'
 import Meteogram from './meteogram'
 import './app.css'
 
-class App extends React.Component {
+export default class App extends PersistentComponent {
   constructor() {
     super()
-    this.state = {
+    this.state = this.getPersistedState()
+  }
+
+  getInitialState() {
+    return {
       lat: null,
       lon: null
     }
@@ -31,5 +36,3 @@ class App extends React.Component {
     )
   }
 }
-
-export default App

@@ -6,8 +6,15 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.css$/, loader: 'style!css' },
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'}
+      {
+        test: /\.css$/,
+        loader: 'style!css'
+      },
+      {
+        test: /\.js$/, exclude: /node_modules/,
+        // needs coreAliasing for Object.assign
+        loader: 'babel-loader?optional=runtime'
+      }
     ]
   },
   devtool: '#source-map'
