@@ -25,9 +25,17 @@ dist/index.appcache: dist/index.html dist/bundle.js
 	@echo "NETWORK:" >> $@
 	@echo "*" >> $@
 
-.PHONY: dist
+.PHONY: dist release deploy
 
 dist: dist/bundle.js dist/index.html dist/index.appcache
+
+release:
+	cd dist; git clean -f; git rm -rf * || true
+	make dist
+	cd dist; git add -A
+
+deploy:
+	cd dist; git commit -m "update"; git push
 
 clean:
 	rm dist/*
