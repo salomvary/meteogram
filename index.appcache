@@ -1,6 +1,7 @@
 CACHE MANIFEST
-# Fri Jun 12 14:59:21 CEST 2015
+# Fri Jun 12 15:43:05 CEST 2015
 CACHE:
 bundle.js
+bundle.max.js
 NETWORK:
 *
