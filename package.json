@@ -1,16 +1,13 @@
 {
-  "name": "wetterzentrale",
+  "name": "meteogram",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "jest",
     "lint": "eslint .",
     "server": "webpack-dev-server",
     "build": "webpack"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "babel": "^5.1.13",
     "babel-core": "^5.1.11",
